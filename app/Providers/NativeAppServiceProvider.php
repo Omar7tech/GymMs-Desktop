@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Native\Desktop\Facades\Notification;use Native\Desktop\Alert;
 use Native\Desktop\Facades\Menu;
 use Native\Desktop\Facades\MenuBar;
 use Native\Desktop\Facades\Window;
@@ -16,19 +17,6 @@ class NativeAppServiceProvider implements ProvidesPhpIni
     public function boot(): void
     {
         Window::open('dashboard')->route('dashboard')->maximized()->title('Gym Management System')->backgroundColor('#00000050')->hideMenu();
-        MenuBar::create()
-            ->withContextMenu(
-                Menu::make(
-                    Menu::label('My Application'),
-                    Menu::separator(),
-                    Menu::link('https://nativephp.com', 'Learn more…')
-                        ->openInBrowser(),
-                    Menu::separator(),
-                    Menu::quit()
-                )
-            );
-
-
     }
 
     /**
